@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>inDnegev 2026 | מדריך התארגנות מאהל</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,600;1,9..144,800&family=Rubik:wght@400;500;600;700&family=Secular+One&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #EAE5D3;
+      --paper-light: #F3EFE0;
+      --navy: #122936;
+      --teal: #245864;
+      --coral: #DE543E;
+      --sage: #7FA068;
+      --ochre: #D99B52;
+      --dusty-blue: #6287A6;
+      --brick: #C95B50;
+    }
+
+    body {
+      font-family: 'Rubik', sans-serif;
+      background-color: var(--paper);
+      color: var(--navy);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .hebrew-display {
+      font-family: 'Secular One', sans-serif;
+    }
+
+    .serif-italic {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+    }
+
+    /* Tactile Paper Grain Overlay across the entire screen */
+    .paper-grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.055;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Psychedelic Risograph Hero Poster Background (0:00 in video) */
+    .poster-art {
+      background: 
+        radial-gradient(circle at 50% 42%, #F3EFE0 0%, #7FA068 24%, #DE543E 52%, #245864 82%, #122936 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Editorial Hairline Rows (0:09-0:13 in video) - NO generic AI cards */
+    .editorial-row {
+      border-bottom: 1px solid rgba(18, 41, 54, 0.18);
+      transition: background-color 0.25s ease, padding-right 0.25s ease;
+    }
+
+    .editorial-row:first-child {
+      border-top: 1px solid rgba(18, 41, 54, 0.18);
+    }
+
+    .editorial-row:hover {
+      background-color: rgba(243, 239, 224, 0.65);
+      padding-right: 0.5rem;
+    }
+
+    /* Dark section editorial rows */
+    .editorial-row-dark {
+      border-bottom: 1px solid rgba(234, 229, 211, 0.16);
+      transition: background-color 0.25s ease, padding-right 0.25s ease;
+    }
+
+    .editorial-row-dark:first-child {
+      border-top: 1px solid rgba(234, 229, 211, 0.16);
+    }
+
+    .editorial-row-dark:hover {
+      background-color: rgba(255, 255, 255, 0.04);
+      padding-right: 0.5rem;
+    }
+
+    /* Smooth Scroll Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Lineup Pill Hover Jiggle */
+    .lineup-pill {
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .lineup-pill:hover {
+      transform: scale(1.06) rotate(-1.5deg);
+    }
+  </style>
+</head>
+<body class="selection:bg-[#DE543E] selection:text-[#F3EFE0]">
+
+  <!-- Film & Paper Grain Overlay -->
+  <div class="paper-grain"></div>
+
+  <!-- FLOATING TOP NAVIGATION (Styled like the 01 | 02 | 03 index bar at 0:08) -->
+  <nav class="fixed top-3 inset-x-0 z-50 flex justify-center px-3">
+    <div class="bg-[#EAE5D3]/90 backdrop-blur-md border border-[#122936]/20 rounded-full px-2 py-1.5 shadow-sm flex items-center gap-1 sm:gap-1.5 overflow-x-auto max-w-full text-xs sm:text-sm">
+      <a href="#top" class="bg-[#245864] text-[#EAE5D3] px-3.5 py-1 rounded-full font-medium whitespace-nowrap">
+        ראשי
+      </a>
+      <a href="#tents" class="px-2.5 py-1 rounded-full hover:bg-[#122936] hover:text-[#EAE5D3] transition whitespace-nowrap">
+        <span class="serif-italic text-[#DE543E] ml-1">01</span>לינה
+      </a>
+      <a href="#gear" class="px-2.5 py-1 rounded-full hover:bg-[#122936] hover:text-[#EAE5D3] transition whitespace-nowrap">
+        <span class="serif-italic text-[#DE543E] ml-1">02</span>ציוד
+      </a>
+      <a href="#drinks" class="px-2.5 py-1 rounded-full hover:bg-[#122936] hover:text-[#EAE5D3] transition whitespace-nowrap">
+        <span class="serif-italic text-[#DE543E] ml-1">03</span>שתייה
+      </a>
+      <a href="#food" class="px-2.5 py-1 rounded-full hover:bg-[#122936] hover:text-[#EAE5D3] transition whitespace-nowrap">
+        <span class="serif-italic text-[#DE543E] ml-1">04</span>אוכל
+      </a>
+      <a href="#arrival" class="px-2.5 py-1 rounded-full hover:bg-[#122936] hover:text-[#EAE5D3] transition whitespace-nowrap">
+        <span class="serif-italic text-[#DE543E] ml-1">05</span>הגעה
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO POSTER FRAME (Matches 0:00 - 0:02 of indnegev.co.il) -->
+  <header id="top" class="max-w-2xl mx-auto px-3 pt-16 pb-8">
+    <div class="poster-art rounded-sm p-6 sm:p-10 min-h-[430px] flex flex-col justify-between text-[#F3EFE0] border-[10px] border-[#F3EFE0] shadow-sm relative">
+      
+      <!-- Torn Masking Tape Corners -->
+      <div class="absolute -top-3 right-6 w-12 h-6 bg-[#EAE5D3] rotate-6 opacity-95 pointer-events-none" style="clip-path: polygon(6% 0, 95% 4%, 100% 92%, 0 100%);"></div>
+      <div class="absolute -bottom-3 left-8 w-14 h-6 bg-[#EAE5D3] -rotate-3 opacity-95 pointer-events-none" style="clip-path: polygon(0 8%, 96% 0, 100% 94%, 4% 100%);"></div>
+
+      <!-- Rotating Botanical / Desert Sunburst SVG in Center -->
+      <svg id="sunburst" class="w-72 h-72 sm:w-80 sm:h-80 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-35 pointer-events-none transition-transform duration-75" viewBox="0 0 200 200" fill="none">
+        <circle cx="100" cy="100" r="38" stroke="#F3EFE0" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="52" stroke="#F3EFE0" stroke-width="0.75" stroke-dasharray="3 3"/>
+        <g stroke="#F3EFE0" stroke-width="1.2">
+          <path d="M100 8 L104 55 L96 55 Z" fill="#F3EFE0" fill-opacity="0.3"/>
+          <path d="M100 192 L104 145 L96 145 Z" fill="#F3EFE0" fill-opacity="0.3"/>
+          <path d="M8 100 L55 104 L55 96 Z" fill="#F3EFE0" fill-opacity="0.3"/>
+          <path d="M192 100 L145 104 L145 96 Z" fill="#F3EFE0" fill-opacity="0.3"/>
+          <line x1="35" y1="35" x2="70" y2="70"/>
+          <line x1="165" y1="35" x2="130" y2="70"/>
+          <line x1="35" y1="165" x2="70" y2="130"/>
+          <line x1="165" y1="165" x2="130" y2="130"/>
+          <line x1="100" y1="0" x2="100" y2="200" stroke-opacity="0.3"/>
+          <line x1="0" y1="100" x2="200" y2="100" stroke-opacity="0.3"/>
+        </g>
+      </svg>
+
+      <!-- Top Row of Poster: Date & Logotype -->
+      <div class="flex justify-between items-start relative z-10" dir="ltr">
+        <div>
+          <div class="serif-italic text-4xl sm:text-5xl tracking-tight leading-none text-[#F3EFE0]">inDnegev</div>
+          <div class="text-[11px] tracking-widest uppercase mt-1 text-[#F3EFE0]/85 font-semibold">CAMPING CREW • 2026</div>
+        </div>
+        <div class="text-right serif-italic text-lg sm:text-xl leading-tight text-[#F3EFE0]">
+          15-17<br>OCT<br>2026
+        </div>
+      </div>
+
+      <!-- Bottom Row of Poster: Hebrew Title & Quick Actions -->
+      <div class="relative z-10 mt-28 text-right">
+        <h1 class="text-4xl sm:text-5xl leading-[0.95] text-[#F3EFE0] drop-shadow-sm">
+          שלושה ימים<br>בלב המדבר
+        </h1>
+        <p class="text-sm sm:text-base mt-2 text-[#F3EFE0]/90 font-medium">
+          15–17 באוקטובר, 2026 • מצפה גבולות • מתמקמים ב<strong class="underline decoration-[#F3EFE0]">במת הפיל</strong>
+        </p>
+
+        <div class="flex flex-wrap gap-2.5 mt-4">
+          <a href="https://www.splitwise.com/join/dJHYpRJaboX+v5lzc?v=e" target="_blank"
+             class="bg-[#245864]/90 hover:bg-[#122936] text-[#F3EFE0] border border-[#F3EFE0]/60 text-xs sm:text-sm font-medium px-5 py-2 rounded-full transition">
+            קבוצת ה-Splitwise 💸
+          </a>
+          <a href="https://www.haaretz.co.il/gallery/music/2026-10-12/ty-article-magazine/.premium/000001a1-2916-dc7c-a9e1-ed1653580000?gift=3ac7062899be4b37a2dceaf097d2ff96" target="_blank"
+             class="bg-[#F3EFE0]/20 hover:bg-[#F3EFE0]/30 backdrop-blur-sm text-[#F3EFE0] border border-[#F3EFE0]/50 text-xs sm:text-sm font-medium px-5 py-2 rounded-full transition">
+            המלצות הארץ 🎸
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CREW LINEUP PILLS (Matches 0:02 - 0:05 in video) -->
+  <section class="max-w-2xl mx-auto px-4 py-6 text-center reveal">
+    <h2 class="text-3xl sm:text-4xl text-[#122936] mb-3">הקבוצה</h2>
+    
+    <div class="inline-flex items-center gap-3 border border-[#122936]/20 rounded-full px-4 py-1 text-xs font-medium mb-5">
+      <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#DE543E]"></span> 6 אוהלים</span>
+      <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#245864]"></span> 2 צידניות</span>
+      <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#7FA068]"></span> אזור במת הפיל</span>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-2 max-w-lg mx-auto">
+      <span class="lineup-pill bg-[#C95B50] text-[#F3EFE0] text-sm font-medium px-4 py-1.5 rounded-full">אוריה לביא בקין</span>
+      <span class="lineup-pill bg-[#245864] text-[#F3EFE0] text-sm font-medium px-4 py-1.5 rounded-full">בן חושן</span>
+      <span class="lineup-pill bg-[#7FA068] text-[#122936] text-sm font-semibold px-4 py-1.5 rounded-full">ניצן פלץ</span>
+      <span class="lineup-pill bg-[#6287A6] text-[#F3EFE0] text-sm font-medium px-4 py-1.5 rounded-full">נועה כוכבי</span>
+      <span class="lineup-pill bg-[#D99B52] text-[#122936] text-sm font-semibold px-4 py-1.5 rounded-full">אורי וולקובסקי</span>
+      <span class="lineup-pill bg-[#C95B50] text-[#F3EFE0] text-sm font-medium px-4 py-1.5 rounded-full">אמיר קשת</span>
+      <span class="lineup-pill bg-[#245864] text-[#F3EFE0] text-sm font-medium px-4 py-1.5 rounded-full">יואב</span>
+      <span class="lineup-pill bg-[#7FA068] text-[#122936] text-sm font-semibold px-4 py-1.5 rounded-full">נווה</span>
+      <span class="lineup-pill bg-[#D97F6C] text-[#122936] text-sm font-semibold px-4 py-1.5 rounded-full">ניר ציוני</span>
+      <span class="lineup-pill bg-[#6287A6] text-[#F3EFE0] text-sm font-medium px-4 py-1.5 rounded-full">שירה</span>
+      <span class="lineup-pill bg-[#D99B52] text-[#122936] text-sm font-semibold px-4 py-1.5 rounded-full">טליה</span>
+    </div>
+  </section>
+
+  <!-- SECTION 01: TENTS (Editorial Print Layout like 0:09 in video) -->
+  <section id="tents" class="max-w-2xl mx-auto px-4 py-10 reveal">
+    <div class="flex items-baseline gap-3 mb-2">
+      <span class="serif-italic text-4xl sm:text-5xl text-[#DE543E]">01</span>
+      <h2 class="text-3xl sm:text-4xl text-[#122936]">לינה וחלוקה לאוהלים</h2>
+    </div>
+    <p class="text-sm text-[#122936]/75 mb-6 leading-relaxed">
+      מתחם הקמפינג מתמלא מהר – שירה, טליה והחברות מגיעות מוקדם ותופסות מקום לכולם באזור <strong>במת הפיל</strong>.
+    </p>
+
+    <div class="text-sm sm:text-base">
+      <div class="editorial-row py-3.5 flex justify-between items-center">
+        <div>
+          <span class="font-bold">אוהל 1</span>
+          <span class="text-[#122936]/60 mx-1.5">•</span>
+          <span>אמיר קשת (אוהל יחיד)</span>
+        </div>
+        <span class="text-xs font-semibold bg-[#122936] text-[#EAE5D3] px-3 py-0.5 rounded-full">סגור</span>
+      </div>
+
+      <div class="editorial-row py-3.5 flex justify-between items-center">
+        <div>
+          <span class="font-bold">אוהל 2</span>
+          <span class="text-[#122936]/60 mx-1.5">•</span>
+          <span>אורי וולקובסקי (אוהל ל-4, נוח ל-2)</span>
+        </div>
+        <span class="text-xs font-semibold bg-[#7FA068] text-[#122936] px-3 py-0.5 rounded-full">פנוי להצטרפות</span>
+      </div>
+
+      <div class="editorial-row py-3.5 flex justify-between items-center">
+        <div>
+          <span class="font-bold">אוהל 3</span>
+          <span class="text-[#122936]/60 mx-1.5">•</span>
+          <span>נועה כוכבי + ניצן (אוהל זוגי)</span>
+        </div>
+        <span class="text-xs font-semibold bg-[#122936] text-[#EAE5D3] px-3 py-0.5 rounded-full">סגור</span>
+      </div>
+
+      <div class="editorial-row py-3.5 flex justify-between items-center">
+        <div>
+          <span class="font-bold">אוהל 4</span>
+          <span class="text-[#122936]/60 mx-1.5">•</span>
+          <span>אוריה (באוהל ל-3 הנוסף של נועה)</span>
+        </div>
+        <span class="text-xs font-semibold bg-[#122936] text-[#EAE5D3] px-3 py-0.5 rounded-full">סגור</span>
+      </div>
+
+      <div class="editorial-row py-3.5 flex justify-between items-center">
+        <div>
+          <span class="font-bold">אוהל 5</span>
+          <span class="text-[#122936]/60 mx-1.5">•</span>
+          <span>בן חושן (אוהל זוגי)</span>
+        </div>
+        <span class="text-xs font-semibold bg-[#122936] text-[#EAE5D3] px-3 py-0.5 rounded-full">סגור</span>
+      </div>
+
+      <div class="editorial-row py-3.5 flex justify-between items-center">
+        <div>
+          <span class="font-bold">אוהל 6</span>
+          <span class="text-[#122936]/60 mx-1.5">•</span>
+          <span>נווה (אוהל יחיד)</span>
+        </div>
+        <span class="text-xs font-semibold bg-[#122936] text-[#EAE5D3] px-3 py-0.5 rounded-full">סגור</span>
+      </div>
+    </div>
+
+    <div class="mt-4 text-xs sm:text-sm text-[#DE543E] font-medium flex items-center gap-2">
+      <span>✱</span>
+      <span>טרם עדכנו שיבוץ לאוהל: <strong>יואב, ניר ציוני, שירה וטליה</strong>.</span>
+    </div>
+  </section>
+
+  <!-- SECTION 02: CAMP GEAR -->
+  <section id="gear" class="max-w-2xl mx-auto px-4 py-10 reveal">
+    <div class="flex items-baseline gap-3 mb-2">
+      <span class="serif-italic text-4xl sm:text-5xl text-[#DE543E]">02</span>
+      <h2 class="text-3xl sm:text-4xl text-[#122936]">ציוד מחנה וחשמל</h2>
+    </div>
+
+    <!-- Asterisk Callout Box (Matches "* אין חשמל באוהלים" callout at 0:09 in video) -->
+    <div class="bg-[#F3EFE0] border-y border-[#122936]/15 py-3.5 px-4 my-5 flex items-start gap-2.5">
+      <span class="text-[#DE543E] font-bold text-lg leading-none mt-0.5">✱</span>
+      <div class="text-xs sm:text-sm font-semibold text-[#122936]">
+        חסר כרגע למאהל: <span class="text-[#DE543E] underline">מחצלת גדולה</span> + <span class="text-[#DE543E] underline">כיסאות מתקפלים נוספים</span> (יש כרגע רק 3 כיסאות).
+      </div>
+    </div>
+
+    <div class="text-sm sm:text-base">
+      <div class="editorial-row py-3.5 flex justify-between items-center">
+        <div>
+          <span class="font-bold">ציליות (אותנטיק)</span>
+          <span class="text-[#122936]/65 text-xs sm:text-sm block sm:inline sm:mr-2">1 גדול (יואב) + 1 קטן (נווה)</span>
+        </div>
+        <span class="text-xs font-semibold bg-[#122936] text-[#EAE5D3] px-3 py-0.5 rounded-full">סגור</span>
+      </div>
+
+      <div class="editorial-row py-3.5 flex justify-between items-center">
+        <div>
+          <span class="font-bold">צידניות</span>
+          <span class="text-[#122936]/65 text-xs sm:text-sm block sm:inline sm:mr-2">2 צידניות: נועה כוכבי (1) + אוריה (1)</span>
+        </div>
+        <span class="text-xs font-semibold bg-[#122936] text-[#EAE5D3] px-3 py-0.5 rounded-full">סגור</span>
+      </div>
+
+      <div class="editorial-row py-3.5 flex justify-between items-center">
+        <div>
+          <span class="font-bold">כיסאות קמפינג</span>
+          <span class="text-[#122936]/65 text-xs sm:text-sm block sm:inline sm:mr-2">3 כיסאות (נועה כוכבי) – מומלץ להביא עוד</span>
+        </div>
+        <span class="text-xs font-semibold bg-[#DE543E] text-[#F3EFE0] px-3 py-0.5 rounded-full">חסר</span>
+      </div>
+
+      <div class="editorial-row py-3.5 flex justify-between items-center">
+        <div>
+          <span class="font-bold">מחצלת גדולה</span>
+          <span class="text-[#122936]/65 text-xs sm:text-sm block sm:inline sm:mr-2">לנווה יש רק מחצלת יחיד – צריך מחצלת גדולה</span>
+        </div>
+        <span class="text-xs font-semibold bg-[#DE543E] text-[#F3EFE0] px-3 py-0.5 rounded-full">חסר</span>
+      </div>
+
+      <div class="editorial-row py-3.5 flex justify-between items-center">
+        <div>
+          <span class="font-bold">תאורת אווירה</span>
+          <span class="text-[#122936]/65 text-xs sm:text-sm block sm:inline sm:mr-2">גרילנדות סולאריות ושרשרת לד (יואב, נווה, אוריה)</span>
+        </div>
+        <span class="text-xs font-semibold bg-[#122936] text-[#EAE5D3] px-3 py-0.5 rounded-full">סגור</span>
+      </div>
+
+      <div class="editorial-row py-3.5 flex justify-between items-center">
+        <div>
+          <span class="font-bold">סוללות גיבוי (Power Banks)</span>
+          <span class="text-[#122936]/65 text-xs sm:text-sm block sm:inline sm:mr-2">אוריה (30,000mAh + קטנה), אורי (1), ניצן (1), אמיר (1)</span>
+        </div>
+        <span class="text-xs font-semibold bg-[#122936] text-[#EAE5D3] px-3 py-0.5 rounded-full">סגור</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORGANIC WAVY HORIZON INTO MIDNIGHT SECTION (Matches 0:05-0:06 in video) -->
+  <div class="w-full overflow-hidden leading-none mt-6">
+    <svg viewBox="0 0 1440 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-10 sm:h-14">
+      <path d="M0 36C280 68 540 4 860 32C1120 54 1300 18 1440 8V64H0V36Z" fill="#122936"/>
+    </svg>
+  </div>
+
+  <!-- SECTION 03: DRINKS & GAT (Midnight Desert Sky Section) -->
+  <section id="drinks" class="bg-[#122936] text-[#EAE5D3] py-14 px-4">
+    <div class="max-w-2xl mx-auto reveal">
+      <div class="flex items-baseline gap-3 mb-2">
+        <span class="serif-italic text-4xl sm:text-5xl text-[#D99B52]">03</span>
+        <h2 class="text-3xl sm:text-4xl text-[#EAE5D3]">שתייה, אלכוהול וגת</h2>
+      </div>
+      <p class="text-sm text-[#EAE5D3]/70 mb-8">
+        חלוקה ברורה של מה שכבר אצלנו ומה שעוד צריך לקנות. כל ההוצאות נכנסות ל-Splitwise.
+      </p>
+
+      <!-- Clean 3-Part Editorial Breakdown -->
+      <div class="space-y-8">
+        
+        <!-- Group A: Already Bought -->
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <h3 class="text-lg text-[#D99B52]">א. אלכוהול שכבר נקנה (אחראי: יואב)</h3>
+            <span class="text-xs text-[#EAE5D3]/60">סה"כ 3 ליטר במלאי</span>
+          </div>
+          <div class="text-sm sm:text-base">
+            <div class="editorial-row-dark py-3 flex justify-between items-center">
+              <span>פיירבול (Fireball) – 1 ליטר</span>
+              <span class="text-xs font-semibold bg-[#7FA068] text-[#122936] px-3 py-0.5 rounded-full">סגור</span>
+            </div>
+            <div class="editorial-row-dark py-3 flex justify-between items-center">
+              <span>ייגרמייסטר – 1 ליטר</span>
+              <span class="text-xs font-semibold bg-[#7FA068] text-[#122936] px-3 py-0.5 rounded-full">סגור</span>
+            </div>
+            <div class="editorial-row-dark py-3 flex justify-between items-center">
+              <span>ג'ין – 1 ליטר</span>
+              <span class="text-xs font-semibold bg-[#7FA068] text-[#122936] px-3 py-0.5 rounded-full">סגור</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group B: Remaining Purchases -->
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <h3 class="text-lg text-[#D99B52]">ב. השלמות שתייה וגת לפני היציאה</h3>
+            <span class="text-xs text-[#EAE5D3]/60">יעד כולל: כ-6 ליטר אלכוהול</span>
+          </div>
+          <div class="text-sm sm:text-base">
+            <div class="editorial-row-dark py-3 flex justify-between items-center">
+              <div>
+                <span class="font-bold">טקילה / מזקל (בקבוק 1)</span>
+                <span class="text-xs text-[#EAE5D3]/60 mr-2">• יואב קונה בשוק</span>
+              </div>
+              <span class="text-xs font-semibold bg-[#D99B52] text-[#122936] px-3 py-0.5 rounded-full">סגור</span>
+            </div>
+            <div class="editorial-row-dark py-3 flex justify-between items-center">
+              <div>
+                <span class="font-bold">יין בקרטון + בירות</span>
+                <span class="text-xs text-[#EAE5D3]/60 mr-2">• יואב קונה בשוק</span>
+              </div>
+              <span class="text-xs font-semibold bg-[#D99B52] text-[#122936] px-3 py-0.5 rounded-full">סגור</span>
+            </div>
+            <div class="editorial-row-dark py-3 flex justify-between items-center">
+              <div>
+                <span class="font-bold">גת ומיצוי גת (100 ₪ לליטר)</span>
+                <span class="text-xs text-[#EAE5D3]/60 mr-2">• בן חושן מזמין מהספק (מופרד מהטקילה!)</span>
+              </div>
+              <span class="text-xs font-semibold bg-[#D99B52] text-[#122936] px-3 py-0.5 rounded-full">סגור</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group C: Water & Cups -->
+        <div class="border border-[#EAE5D3]/20 rounded-xl p-4 text-xs sm:text-sm text-[#EAE5D3]/85 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <strong>💧 התנהלות מים ובירה בפסטיבל:</strong> יש ברזי שתייה חופשיים ליד הרחבה. מומלץ לקנות במקום כוס רב-פעמית למילוי מים ובירה מוזלת.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ORGANIC WAVY HORIZON BACK TO PAPER -->
+  <div class="w-full overflow-hidden leading-none bg-[#122936]">
+    <svg viewBox="0 0 1440 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-10 sm:h-14">
+      <path d="M0 16C360 64 720 0 1080 38C1260 56 1380 32 1440 18V64H0V16Z" fill="#EAE5D3"/>
+    </svg>
+  </div>
+
+  <!-- SECTION 04: FOOD & CHECKLIST (Interactive Editorial List) -->
+  <section id="food" class="max-w-2xl mx-auto px-4 py-10 reveal">
+    <div class="flex items-baseline gap-3 mb-2">
+      <span class="serif-italic text-4xl sm:text-5xl text-[#DE543E]">04</span>
+      <h2 class="text-3xl sm:text-4xl text-[#122936]">אוכל והשלמות למאהל</h2>
+    </div>
+    <p class="text-sm text-[#122936]/75 mb-5">
+      אחראי קניות אוכל: <strong>בן חושן + ניצן</strong>. הוחלט לא לבשל בשטח (בלי גזייה). אפשר ללחוץ על כל שורה כדי לסמן מה שכבר נקנה:
+    </p>
+
+    <div id="checklist" class="text-sm sm:text-base"></div>
+  </section>
+
+  <!-- SECTION 05: ARRIVAL -->
+  <section id="arrival" class="max-w-2xl mx-auto px-4 py-10 reveal">
+    <div class="flex items-baseline gap-3 mb-2">
+      <span class="serif-italic text-4xl sm:text-5xl text-[#DE543E]">05</span>
+      <h2 class="text-3xl sm:text-4xl text-[#122936]">הגעה ורכבים (יום חמישי)</h2>
+    </div>
+    <p class="text-sm text-[#122936]/75 mb-5">
+      מגיעים במספר סבבים במהלך יום חמישי. הראשונים שמתמקמים שולחים נקודה מדויקת בקבוצה.
+    </p>
+
+    <div class="text-sm sm:text-base">
+      <div class="editorial-row py-4 flex justify-between items-center gap-4">
+        <div>
+          <div class="text-xs font-semibold text-[#DE543E]">כוח חלוץ • בוקר</div>
+          <div class="font-bold text-base">שירה, טליה והחברות</div>
+          <div class="text-xs sm:text-sm text-[#122936]/70">מגיעות מוקדם ותופסות מקום למאהל באזור במת הפיל.</div>
+        </div>
+        <span class="text-xs font-semibold bg-[#122936] text-[#EAE5D3] px-3 py-0.5 rounded-full whitespace-nowrap">סגור</span>
+      </div>
+
+      <div class="editorial-row py-4 flex justify-between items-center gap-4">
+        <div>
+          <div class="text-xs font-semibold text-[#245864]">סבב צהריים • סביבות 12:00</div>
+          <div class="font-bold text-base">הרכב של נועה כוכבי</div>
+          <div class="text-xs sm:text-sm text-[#122936]/70">נועה ונווה (וסבב איסופים באיזור השעה 12:00).</div>
+        </div>
+        <span class="text-xs font-semibold bg-[#122936] text-[#EAE5D3] px-3 py-0.5 rounded-full whitespace-nowrap">סגור</span>
+      </div>
+
+      <div class="editorial-row py-4 flex justify-between items-center gap-4">
+        <div>
+          <div class="text-xs font-semibold text-[#245864]">סבב אחה"צ • סביבות 17:00</div>
+          <div class="font-bold text-base">הרכב של אוריה</div>
+          <div class="text-xs sm:text-sm text-[#122936]/70">יוצאים מתל אביב ב-17:00 – שומרים להם מקום לאוהלים במאהל.</div>
+        </div>
+        <span class="text-xs font-semibold bg-[#122936] text-[#EAE5D3] px-3 py-0.5 rounded-full whitespace-nowrap">סגור</span>
+      </div>
+    </div>
+
+    <!-- Pill Action Button (Matches "לוח זמנים מלא <-" button at 0:06 in video) -->
+    <div class="mt-10 text-center">
+      <button onclick="copySummary()" id="copyBtn"
+              class="bg-[#EAE5D3] hover:bg-[#122936] text-[#122936] hover:text-[#EAE5D3] border border-[#122936] font-semibold py-3 px-7 rounded-full transition inline-flex items-center gap-2 text-sm sm:text-base">
+        <span>העתקת סיכום מסודר לוואטסאפ</span>
+        <span>←</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- FOOTER (Matches 0:16 - 0:18 "נפגש במדבר" footer in video) -->
+  <footer class="bg-[#122936] text-[#EAE5D3] py-14 px-4 mt-10 border-t border-[#EAE5D3]/10">
+    <div class="max-w-2xl mx-auto flex flex-col items-center text-center">
+      <h2 class="text-3xl sm:text-4xl mb-1">נפגש במדבר</h2>
+      <p class="text-xs sm:text-sm text-[#EAE5D3]/70">15–17 באוקטובר, 2026 • מצפה גבולות</p>
+      <div class="serif-italic text-2xl text-[#EAE5D3]/80 mt-6">inDnegev</div>
+    </div>
+  </footer>
+
+  <script>
+    const checklistItems = [
+      { id: 1, text: "סוכריות גומי מהשוק (יואב)", status: "סגור" },
+      { id: 2, text: "לחמים, פיתות וממרחים עמידים (בן וניצן)", status: "סגור" },
+      { id: 3, text: "גבינה צהובה 9% (בן וניצן)", status: "סגור" },
+      { id: 4, text: "ירקות ופירות לנשנוש (בן וניצן)", status: "סגור" },
+      { id: 5, text: "שימורים (שעועית, תירס, טונה) וקורנפלקס (בן וניצן)", status: "סגור" },
+      { id: 6, text: "בורגול / כוסמת להשריה קרה (בן וניצן)", status: "סגור" },
+      { id: 7, text: "שקיות קרח ל-2 הצידניות (נועה ואוריה)", status: "חסר" },
+      { id: 8, text: "נייר טואלט, מגבונים ושקיות אשפה", status: "חסר" },
+      { id: 9, text: "סכין חיתוך, צלחות וכוסות למאהל", status: "חסר" },
+      { id: 10, text: "שישיית מים למאהל", status: "חסר" }
+    ];
+
+    function renderChecklist() {
+      const saved = JSON.parse(localStorage.getItem('indnegev_print_check') || '{}');
+      const container = document.getElementById('checklist');
+      container.innerHTML = checklistItems.map(item => {
+        const isChecked = saved[item.id] || false;
+        const isMissing = item.status === "חסר";
+        return `
+          <div onclick="toggleCheck(${item.id})" class="editorial-row py-3.5 flex items-center justify-between gap-3 cursor-pointer ${isChecked ? 'opacity-45 line-through' : ''}">
+            <div class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full border border-[#122936] flex items-center justify-center text-xs ${isChecked ? 'bg-[#122936] text-[#EAE5D3]' : ''}">
+                ${isChecked ? '✓' : ''}
+              </span>
+              <span class="font-medium">${item.text}</span>
+            </div>
+            <span class="text-xs font-semibold px-3 py-0.5 rounded-full whitespace-nowrap ${
+              isMissing ? 'bg-[#DE543E] text-[#F3EFE0]' : 'bg-[#122936] text-[#EAE5D3]'
+            }">${item.status}</span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function toggleCheck(id) {
+      const saved = JSON.parse(localStorage.getItem('indnegev_print_check') || '{}');
+      saved[id] = !saved[id];
+      localStorage.setItem('indnegev_print_check', JSON.stringify(saved));
+      renderChecklist();
+    }
+
+    function copySummary() {
+      const text = `*אינדינגב 2026 – סיכום התארגנות מאהל*\n\n` +
+        `📍 *מיקום:* אזור במת הפיל (שירה, טליה והחברות תופסות מקום)\n` +
+        `⛺ *אוהלים:* אמיר (סגור), אורי (פנוי להצטרפות), נועה+ניצן (סגור), אוריה (סגור), בן (סגור), נווה (סגור). *יואב וניר – לעדכן שיבוץ.*\n` +
+        `🏕️ *ציוד קמפ:* 2 ציליות (יואב ונווה), 2 צידניות (נועה ואוריה), 3 כיסאות (נועה), תאורה (יואב, נווה, אוריה), 5 סוללות גיבוי.\n` +
+        `⚠️ *חסר למחנה:* מחצלת גדולה + כיסאות נוספים.\n` +
+        `🥃 *שתייה וגת:* נקנו 3 ליטר (פיירבול, ייגר, ג'ין). יואב משלים בשוק טקילה/מזקל, יין בקרטון ובירות. בן מזמין גת.\n` +
+        `🛒 *אוכל והשלמות (בן וניצן):* לחמים, גבנ"צ 9%, ירקות, פירות, שימורים, קורנפלקס, בורגול/כוסמת, גומי + להוסיף: קרח ל-2 הצידניות, נייר טואלט, שקיות אשפה ושישיית מים.`;
+      navigator.clipboard.writeText(text);
+      const btn = document.getElementById('copyBtn');
+      btn.innerHTML = '<span>הועתק! אפשר להדביק בקבוצה ✓</span>';
+      setTimeout(() => {
+        btn.innerHTML = '<span>העתקת סיכום מסודר לוואטסאפ</span><span>←</span>';
+      }, 2500);
+    }
+
+    // Scroll Reveal & Gentle Sunburst Parallax
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    window.addEventListener('scroll', () => {
+      const sun = document.getElementById('sunburst');
+      if (sun) {
+        const rot = window.scrollY * 0.08;
+        sun.style.transform = `translate(-50%, -50%) rotate(${rot}deg)`;
+      }
+    }, { passive: true });
+
+    renderChecklist();
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
